@@ -10,10 +10,7 @@ import yourssu.assignment.domain.comment.repository.CommentRepository
 import yourssu.assignment.domain.user.User
 
 @Service
-class ArticleService(
-    private val articleRepository: ArticleRepository,
-    private val commentRepository: CommentRepository
-) {
+class ArticleService(private val articleRepository: ArticleRepository) {
 
     @Transactional
     fun registerArticle(request: CreateArticleDto, user: User): ArticleResponse {

@@ -7,9 +7,7 @@ import yourssu.assignment.domain.user.User
 import yourssu.assignment.domain.user.repository.UserRepository
 
 @Service
-class UserService(
-    private val userRepository: UserRepository
-) {
+class UserService(private val userRepository: UserRepository) {
 
     @Transactional
     fun registerUser(request: CreateUserDto): User {
