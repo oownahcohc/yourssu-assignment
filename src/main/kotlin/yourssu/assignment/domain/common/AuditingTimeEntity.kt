@@ -13,9 +13,9 @@ import javax.persistence.MappedSuperclass
 class AuditingTimeEntity(
     @CreatedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "Asia/Seoul")
-    val createdAt: LocalDateTime,
+    val createdAt: LocalDateTime? = null,
 
     @LastModifiedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "Asia/Seoul")
-    val updatedAt: LocalDateTime
+    val updatedAt: LocalDateTime? = null
 )
