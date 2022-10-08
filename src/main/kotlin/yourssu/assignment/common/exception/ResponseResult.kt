@@ -7,7 +7,7 @@ enum class ResponseResult(
     val message: String
 ) {
     // 200 OK
-    SUCCESS_OK(OK, ""),
+    SUCCESS_OK(OK, "요청 성공"),
 
     // 201 CREATED
     SUCCESS_CREATED(CREATED, ""),
