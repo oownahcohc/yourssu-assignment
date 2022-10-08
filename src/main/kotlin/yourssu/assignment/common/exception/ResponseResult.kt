@@ -33,6 +33,7 @@ enum class ResponseResult(
 
     // 401 UNAUTHORIZED
     UNAUTHORIZED_EXCEPTION(UNAUTHORIZED, "토큰이 만료되었습니다.\n다시 로그인 해주세요"),
+    UNAUTHORIZED_WRONG_PASSWORD_EXCEPTION(UNAUTHORIZED, "비밀번호가 일치하지 않습니다"),
 
     // 403 FORBIDDEN
     FORBIDDEN_EXCEPTION(FORBIDDEN, "허용하지 않는 요청입니다."),
