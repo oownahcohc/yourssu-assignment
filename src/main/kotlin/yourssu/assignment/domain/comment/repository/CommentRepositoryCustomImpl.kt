@@ -4,9 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory
 import yourssu.assignment.domain.comment.Comment
 import yourssu.assignment.domain.comment.QComment.*
 
-class CommentRepositoryCustomImpl(
-    private val query: JPAQueryFactory
-): CommentRepositoryCustom {
+class CommentRepositoryCustomImpl(private val query: JPAQueryFactory): CommentRepositoryCustom {
 
     override fun findByCommentIdAndArticleId(commentId: Long, articleId: Long): Comment? {
         return query

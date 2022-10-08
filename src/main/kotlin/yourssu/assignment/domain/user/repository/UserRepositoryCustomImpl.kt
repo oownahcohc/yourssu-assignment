@@ -4,9 +4,8 @@ import com.querydsl.jpa.impl.JPAQueryFactory
 import yourssu.assignment.domain.user.QUser.*
 import yourssu.assignment.domain.user.User
 
-class UserRepositoryCustomImpl(
-    private val query: JPAQueryFactory
-): UserRepositoryCustom {
+class UserRepositoryCustomImpl(private val query: JPAQueryFactory): UserRepositoryCustom {
+
     override fun existByEmail(email: String): Boolean {
         return query
             .selectOne()
@@ -28,4 +27,5 @@ class UserRepositoryCustomImpl(
             .where(user.id.eq(userId))
             .fetchOne()
     }
+
 }
