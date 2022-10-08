@@ -30,7 +30,8 @@ class AuthController(
      * 회원 탈퇴
      */
     @PostMapping("/auth/resign")
-    fun resign(@Valid @RequestBody request: ResignRequest) {
+    fun resign(@Valid @RequestBody request: ResignRequest): ResponseEntity<String> {
         authService.resign(request)
+        return ApiSuccessResponse.SUCCESS
     }
 }

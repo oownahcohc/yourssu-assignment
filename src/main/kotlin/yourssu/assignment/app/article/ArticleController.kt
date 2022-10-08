@@ -46,9 +46,10 @@ class ArticleController(
      * 게시글 삭제
      */
     @DeleteMapping("/article/{articleId}")
-    fun deleteArticle(@Valid @RequestBody request: DeleteArticleRequest, @PathVariable articleId: Long) {
+    fun deleteArticle(@Valid @RequestBody request: DeleteArticleRequest, @PathVariable articleId: Long): ResponseEntity<String> {
         authService.getValidUser(request.email, request.password).let {
             articleService.deleteArticle(articleId)
+            return ApiSuccessResponse.SUCCESS
         }
     }
 
