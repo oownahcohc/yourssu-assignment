@@ -8,6 +8,7 @@ enum class ResponseResult(
 ) {
     // 200 OK
     SUCCESS_OK(OK, "요청 성공"),
+    OK_LOGIN(OK, "로그인에 성공했습니다"),
 
     // 201 CREATED
     SUCCESS_CREATED(CREATED, ""),
