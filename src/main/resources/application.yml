@@ -26,3 +26,6 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
     com.amazonaws.util.EC2MetadataUtils: error
+
+jwt:
+  secret: dXNlciBjdXN0b21pemVkIGxlbnMgcmVjb21tZW5kYXRpb24gc2VydmljZSBvbW9vbGVuIHNlcnZlciBmaWdodGluZwo=
