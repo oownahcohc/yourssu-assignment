@@ -4,10 +4,8 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import yourssu.assignment.app.article.dto.request.CreateArticleDto
 import yourssu.assignment.app.article.dto.response.ArticleResponse
-import yourssu.assignment.common.exception.custom.NotFoundException
 import yourssu.assignment.domain.article.repository.ArticleRepository
-import yourssu.assignment.domain.comment.repository.CommentRepository
-import yourssu.assignment.domain.user.User
+import yourssu.assignment.domain.user.entity.User
 
 @Service
 class ArticleService(private val articleRepository: ArticleRepository) {

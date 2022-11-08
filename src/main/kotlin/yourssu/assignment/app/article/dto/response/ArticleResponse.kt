@@ -1,7 +1,7 @@
 package yourssu.assignment.app.article.dto.response
 
 import yourssu.assignment.domain.article.Article
-import yourssu.assignment.domain.user.User
+import yourssu.assignment.domain.user.entity.User
 
 data class ArticleResponse(
     val articleId: Long,
