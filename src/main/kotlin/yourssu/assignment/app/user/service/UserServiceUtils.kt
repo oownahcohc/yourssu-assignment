@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull
 import yourssu.assignment.common.exception.ResponseResult
 import yourssu.assignment.common.exception.custom.ConflictException
 import yourssu.assignment.common.exception.custom.NotFoundException
-import yourssu.assignment.domain.user.User
+import yourssu.assignment.domain.user.entity.User
 import yourssu.assignment.domain.user.repository.UserRepository
 
 class UserServiceUtils {
