@@ -1,8 +1,6 @@
 package yourssu.assignment.common.exception
 
-enum class StatusCode(
-    val status: Int
-) {
+enum class StatusCode(val status: Int) {
     /**
      * Success Code
      */
