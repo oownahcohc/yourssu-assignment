@@ -9,7 +9,8 @@ import javax.persistence.*
 class User(
     @Column(nullable = false) val username: String,
     @Column(nullable = false) val email: String,
-    @Column(nullable = false) val password: String
+    @Column(nullable = false) val password: String,
+    @Column(nullable = false) val refreshToken: String,
 ): AuditingTimeEntity() {
 
     @Id

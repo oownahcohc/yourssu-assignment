@@ -37,6 +37,10 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-security")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+    implementation( "io.jsonwebtoken:jjwt-api:0.11.2")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
+    runtimeOnly( "io.jsonwebtoken:jjwt-jackson:0.11.2")
+
     testImplementation("io.kotest:kotest-runner-junit5:5.5.0")
     testImplementation("io.kotest:kotest-assertions-core:5.5.0")
 
