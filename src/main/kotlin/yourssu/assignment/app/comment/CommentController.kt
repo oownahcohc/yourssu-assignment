@@ -9,6 +9,7 @@ import yourssu.assignment.app.comment.dto.response.CommentResponse
 import yourssu.assignment.app.comment.service.CommentService
 import yourssu.assignment.common.dto.ApiSuccessResponse
 import yourssu.assignment.common.exception.ResponseResult
+import yourssu.assignment.config.interceptor.Auth
 import javax.validation.Valid
 import kotlin.time.measureTime
 
@@ -21,6 +22,7 @@ class CommentController(
     /**
      * 댓글 등록
      */
+    @Auth
     @PostMapping("/{articleId}/comment/new")
     fun createComment(@Valid @RequestBody request: CommentRequest, @PathVariable articleId: Long): ResponseEntity<CommentResponse> {
         authService.getValidUser(request.email, request.password).let {
@@ -32,6 +34,7 @@ class CommentController(
     /**
      * 댓글 수정
      */
+    @Auth
     @PutMapping("/{articleId}/comment/{commentId}/update")
     fun updateComment(@Valid @RequestBody request: CommentRequest,
                       @PathVariable articleId: Long,
@@ -46,6 +49,7 @@ class CommentController(
     /**
      * 댓글 삭제
      */
+    @Auth
     @DeleteMapping("/{articleId}/comment/{commentId}")
     fun deleteComment(@Valid @RequestBody request: DeleteCommentRequest,
                       @PathVariable articleId: Long,
