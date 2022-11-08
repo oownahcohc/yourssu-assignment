@@ -7,7 +7,7 @@ import yourssu.assignment.app.comment.dto.request.CommentDto
 import yourssu.assignment.app.comment.dto.response.CommentResponse
 import yourssu.assignment.domain.article.repository.ArticleRepository
 import yourssu.assignment.domain.comment.repository.CommentRepository
-import yourssu.assignment.domain.user.User
+import yourssu.assignment.domain.user.entity.User
 
 @Service
 class CommentService(
