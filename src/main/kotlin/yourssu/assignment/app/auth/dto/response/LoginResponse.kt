@@ -12,7 +12,7 @@ data class LoginResponse(
 ) {
     companion object {
         fun of(email: String, username: String, role: UserRole, accessToken: String, refreshToken: String): LoginResponse {
-            return LoginResponse(email, username, role, HttpHeaderUtils.withBearerToken(accessToken), HttpHeaderUtils.withBearerToken(refreshToken))
+            return LoginResponse(email, username, role, accessToken, refreshToken)
         }
     }
 }
