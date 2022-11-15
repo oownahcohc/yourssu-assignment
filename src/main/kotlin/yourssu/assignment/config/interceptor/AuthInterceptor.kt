@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 @Component
-class AuthInterceptor(val loginCheckHandler: LoginCheckHandler) : HandlerInterceptor {
+class AuthInterceptor(private val loginCheckHandler: LoginCheckHandler) : HandlerInterceptor {
 
     @Throws(Exception::class)
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
@@ -20,5 +20,4 @@ class AuthInterceptor(val loginCheckHandler: LoginCheckHandler) : HandlerInterce
         request.setAttribute(JwtConstants.USER_EMAIL, userEmail)
         return true
     }
-
 }
