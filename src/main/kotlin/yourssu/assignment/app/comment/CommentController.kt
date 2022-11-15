@@ -1,5 +1,6 @@
 package yourssu.assignment.app.comment
 
+import io.swagger.annotations.ApiOperation
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import yourssu.assignment.app.auth.AuthService
@@ -19,9 +20,7 @@ class CommentController(
     private val commentService: CommentService
 ) {
 
-    /**
-     * 댓글 등록
-     */
+    @ApiOperation("댓글 등록")
     @Auth
     @PostMapping("/{articleId}/comment/new")
     fun createComment(@Valid @RequestBody request: CommentRequest, @PathVariable articleId: Long): ResponseEntity<CommentResponse> {
@@ -31,9 +30,7 @@ class CommentController(
         }
     }
 
-    /**
-     * 댓글 수정
-     */
+    @ApiOperation("댓글 수정")
     @Auth
     @PutMapping("/{articleId}/comment/{commentId}/update")
     fun updateComment(@Valid @RequestBody request: CommentRequest,
@@ -46,9 +43,7 @@ class CommentController(
         }
     }
 
-    /**
-     * 댓글 삭제
-     */
+    @ApiOperation("댓글 삭제")
     @Auth
     @DeleteMapping("/{articleId}/comment/{commentId}")
     fun deleteComment(@Valid @RequestBody request: DeleteCommentRequest,

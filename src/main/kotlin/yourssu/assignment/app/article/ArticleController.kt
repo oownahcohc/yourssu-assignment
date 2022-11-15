@@ -1,5 +1,6 @@
 package yourssu.assignment.app.article
 
+import io.swagger.annotations.ApiOperation
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -23,9 +24,7 @@ class ArticleController(
     private val articleService: ArticleService
 ) {
 
-    /**
-     * 게시글 등록
-     */
+    @ApiOperation("게시글 등록")
     @Auth
     @PostMapping("/article/new")
     fun createArticle(@Valid @RequestBody request: ArticleRequest): ResponseEntity<ArticleResponse> {
@@ -34,9 +33,7 @@ class ArticleController(
         }
     }
 
-    /**
-     * 게시글 수정
-     */
+    @ApiOperation("게시글 수정")
     @Auth
     @PutMapping("/article/{articleId}/update")
     fun updateArticle(@Valid @RequestBody request: ArticleRequest, @PathVariable articleId: Long): ResponseEntity<ArticleResponse> {
@@ -45,9 +42,7 @@ class ArticleController(
         }
     }
 
-    /**
-     * 게시글 삭제
-     */
+    @ApiOperation("게시글 삭제")
     @Auth
     @DeleteMapping("/article/{articleId}")
     fun deleteArticle(@Valid @RequestBody request: DeleteArticleRequest, @PathVariable articleId: Long): ResponseEntity<String> {
