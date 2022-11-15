@@ -5,7 +5,7 @@ import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import yourssu.assignment.app.auth.dto.response.TokenResponseDto
+import yourssu.assignment.app.auth.dto.response.TokenResponse
 import yourssu.assignment.common.constants.JwtConstants
 import yourssu.assignment.common.log.logger
 import yourssu.assignment.domain.user.entity.UserRole
@@ -20,7 +20,7 @@ class JwtUtils(@Value("\${jwt.secret}") secretKey: String?) {
 
     private var secretKey: Key? = null
 
-    fun createTokenByUserEmailAndUserRole(email: String, role: UserRole): TokenResponseDto {
+    fun createTokenByUserEmailAndUserRole(email: String, role: UserRole): TokenResponse {
         val now = Date().time
         val accessTokenExpiresIn = Date(now + ACCESS_TOKEN_EXPIRES_TIME)
         val refreshTokenExpiresIn = Date(now + REFRESH_TOKEN_EXPIRES_TIME)
@@ -39,7 +39,7 @@ class JwtUtils(@Value("\${jwt.secret}") secretKey: String?) {
             .setExpiration(refreshTokenExpiresIn)
             .signWith(secretKey, SignatureAlgorithm.HS512)
             .compact()
-        return TokenResponseDto.of(accessToken, refreshToken)
+        return TokenResponse.of(accessToken, refreshToken)
     }
 
     fun validateToken(token: String?): Boolean {
