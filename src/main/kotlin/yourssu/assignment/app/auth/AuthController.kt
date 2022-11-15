@@ -10,15 +10,15 @@ import yourssu.assignment.app.auth.dto.request.ResignRequest
 import yourssu.assignment.app.auth.dto.request.SignupRequest
 import yourssu.assignment.app.auth.dto.response.LoginResponse
 import yourssu.assignment.app.auth.dto.response.SignupResponse
+import yourssu.assignment.app.auth.dto.response.TokenResponse
 import yourssu.assignment.common.dto.ApiSuccessResponse
 import yourssu.assignment.common.exception.ResponseResult.*
 import yourssu.assignment.config.interceptor.Auth
+import yourssu.assignment.config.resolver.LoginUserEmail
 import javax.validation.Valid
 
 @RestController
-class AuthController(
-    private val authService: AuthService
-){
+class AuthController(private val authService: AuthService) {
 
     @ApiOperation("회원가입")
     @PostMapping("/auth/signup")
@@ -44,4 +44,12 @@ class AuthController(
         }
     }
 
+    @ApiOperation("토큰 재발급")
+    @Auth
+    @PostMapping("/auth/reissue")
+    fun login(@LoginUserEmail email: String): ResponseEntity<TokenResponse> {
+        authService.reissueToken(email).let {
+            return ApiSuccessResponse.success(SUCCESS_REISSUE_TOKEN, it)
+        }
+    }
 }
