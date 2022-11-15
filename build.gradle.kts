@@ -53,6 +53,9 @@ dependencies {
     kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
     kapt("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final")
 
+    // swagger
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
+
     sourceSets.main {
         withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
             kotlin.srcDir("$buildDir/generated/source/kapt/main")
