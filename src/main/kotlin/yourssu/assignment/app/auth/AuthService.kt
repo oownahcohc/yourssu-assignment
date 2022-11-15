@@ -6,6 +6,7 @@ import yourssu.assignment.app.auth.dto.request.LoginRequest
 import yourssu.assignment.app.auth.dto.request.ResignRequest
 import yourssu.assignment.app.auth.dto.request.SignupRequest
 import yourssu.assignment.app.auth.dto.response.LoginResponse
+import yourssu.assignment.app.auth.dto.response.TokenResponse
 import yourssu.assignment.app.user.service.UserService
 import yourssu.assignment.app.user.service.UserServiceUtils
 import yourssu.assignment.common.exception.custom.UnAuthorizedException
@@ -35,6 +36,14 @@ class AuthService(
             it.refreshToken = tokenResponseDto.refreshToken
             return LoginResponse.of(it.email, it.username, it.role, tokenResponseDto.accessToken, tokenResponseDto.refreshToken)
         }
+    }
+
+    @Transactional
+    fun reissueToken(email: String): TokenResponse {
+        val user = UserServiceUtils.findUserByEmail(userRepository, email)
+        val reissueTokenInfo = jwtUtils.createTokenByUserEmailAndUserRole(email, user.role)
+        user.refreshToken = reissueTokenInfo.refreshToken
+        return reissueTokenInfo
     }
 
     @Transactional

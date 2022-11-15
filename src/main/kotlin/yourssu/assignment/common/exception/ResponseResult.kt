@@ -17,6 +17,7 @@ enum class ResponseResult(
     SUCCESS_UPDATE_ARTICLE(CREATED, "게시글이 수정되었습니다"),
     SUCCESS_CREATE_COMMENT(CREATED, "댓글이 작성되었습니다"),
     SUCCESS_UPDATE_COMMENT(CREATED, "댓글이 수정되었습니다"),
+    SUCCESS_REISSUE_TOKEN(CREATED, "토큰이 성공적으로 재발급되었습니다"),
 
     // 202 ACCEPTED
     SUCCESS_ACCEPTED(ACCEPTED, ""),

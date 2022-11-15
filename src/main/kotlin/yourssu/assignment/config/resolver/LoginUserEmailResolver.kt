@@ -14,7 +14,7 @@ import yourssu.assignment.config.interceptor.Auth
 class LoginUserIdResolver : HandlerMethodArgumentResolver {
 
     override fun supportsParameter(parameter: MethodParameter): Boolean {
-        return parameter.hasParameterAnnotation(LoginUserEmail::class.java) && parameter.parameterType == Long::class.java
+        return parameter.hasParameterAnnotation(LoginUserEmail::class.java) && parameter.parameterType == String::class.java
     }
 
     @Throws(Exception::class)
@@ -32,5 +32,4 @@ class LoginUserIdResolver : HandlerMethodArgumentResolver {
                 parameter.javaClass,
                 parameter.method))
     }
-
 }

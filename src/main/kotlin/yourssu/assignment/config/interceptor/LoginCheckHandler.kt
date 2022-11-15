@@ -8,7 +8,7 @@ import yourssu.assignment.common.utils.JwtUtils
 import javax.servlet.http.HttpServletRequest
 
 @Component
-class LoginCheckHandler(val jwtProvider: JwtUtils) {
+class LoginCheckHandler(private val jwtProvider: JwtUtils) {
 
     fun getUserEmail(request: HttpServletRequest): String {
         val bearerToken = request.getHeader(HttpHeaderUtils.AUTH_HEADER)

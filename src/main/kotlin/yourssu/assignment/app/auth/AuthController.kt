@@ -5,20 +5,22 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
+import springfox.documentation.annotations.ApiIgnore
 import yourssu.assignment.app.auth.dto.request.LoginRequest
 import yourssu.assignment.app.auth.dto.request.ResignRequest
 import yourssu.assignment.app.auth.dto.request.SignupRequest
 import yourssu.assignment.app.auth.dto.response.LoginResponse
 import yourssu.assignment.app.auth.dto.response.SignupResponse
+import yourssu.assignment.app.auth.dto.response.TokenResponse
 import yourssu.assignment.common.dto.ApiSuccessResponse
 import yourssu.assignment.common.exception.ResponseResult.*
 import yourssu.assignment.config.interceptor.Auth
+import yourssu.assignment.config.resolver.LoginUserEmail
+import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
 
 @RestController
-class AuthController(
-    private val authService: AuthService
-){
+class AuthController(private val authService: AuthService) {
 
     @ApiOperation("회원가입")
     @PostMapping("/auth/signup")
@@ -44,4 +46,12 @@ class AuthController(
         }
     }
 
+    @ApiOperation("[인증] 토큰 재발급")
+    @Auth
+    @PostMapping("/auth/reissue")
+    fun reissue(@ApiIgnore @LoginUserEmail email: String): ResponseEntity<TokenResponse> {
+        authService.reissueToken(email).let {
+            return ApiSuccessResponse.success(SUCCESS_REISSUE_TOKEN, it)
+        }
+    }
 }
