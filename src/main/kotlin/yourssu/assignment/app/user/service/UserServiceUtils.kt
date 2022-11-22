@@ -28,6 +28,13 @@ class UserServiceUtils {
                 )
         }
 
+        @NotNull
+        fun findUserRoleIsUserByEmail(userRepository: UserRepository, email: String): User {
+            return userRepository.findUserRoleIsUSERByEmail(email)
+                ?: throw NotFoundException(
+                    String.format("존재하지 않는 유저 (%s) 입니다", email),
+                    ResponseResult.CONFLICT_ALREADY_EXIST_USER_EXCEPTION
+                )
+        }
     }
-
 }
