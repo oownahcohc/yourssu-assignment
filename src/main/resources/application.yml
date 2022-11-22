@@ -12,6 +12,10 @@ spring:
     url: jdbc:mysql://localhost:3306/assignment?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
   jpa:
     database: mysql
     hibernate:
