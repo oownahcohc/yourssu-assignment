@@ -66,6 +66,10 @@ class JwtUtils(@Value("\${jwt.secret}") secretKey: String?) {
         return parseClaims(accessToken).get(JwtConstants.USER_EMAIL, String::class.java)
     }
 
+    fun getUserRoleFromJwt(accessToken: String): String? {
+        return parseClaims(accessToken).get(JwtConstants.USER_ROLE, String::class.java)
+    }
+
     private fun parseClaims(accessToken: String): Claims {
         return try {
             Jwts.parserBuilder()

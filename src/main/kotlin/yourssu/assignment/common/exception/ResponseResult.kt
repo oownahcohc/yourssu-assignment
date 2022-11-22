@@ -39,6 +39,7 @@ enum class ResponseResult(
 
     // 403 FORBIDDEN
     FORBIDDEN_EXCEPTION(FORBIDDEN, "허용하지 않는 요청입니다."),
+    FORBIDDEN_USER_ROLE_EXCEPTION(FORBIDDEN, "허용되지 않은 권한입니다"),
     FORBIDDEN_FILE_TYPE_EXCEPTION(FORBIDDEN, "허용되지 않은 파일 형식입니다"),
     FORBIDDEN_FILE_NAME_EXCEPTION(FORBIDDEN, "허용되지 않은 파일 이름입니다"),
 
